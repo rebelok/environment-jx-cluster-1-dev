@@ -1,0 +1,47 @@
+apiVersion: jenkins.io/v1
+kind: Environment
+metadata:
+  creationTimestamp: null
+  labels:
+    env: dev
+    team: jx
+  name: dev
+spec:
+  kind: Development
+  label: Development
+  namespace: jx
+  previewGitInfo:
+    user: {}
+  promotionStrategy: Never
+  source:
+    ref: master
+    url: https://github.com/rebelok/environment-jx-cluster-1-dev.git
+  teamSettings:
+    appsRepository: http://chartmuseum.jenkins-x.io
+    buildPackName: kubernetes-workloads
+    buildPackRef: master
+    buildPackUrl: https://github.com/jenkins-x-buildpacks/jenkins-x-kubernetes.git
+    defaultScheduler:
+      kind: ""
+      name: ""
+    dockerRegistryOrg: jenkins-cloud-333
+    envOrganisation: gke-jx-user
+    gitServer: https://github.com
+    helmTemplate: true
+    importMode: YAML
+    kubeProvider: gke
+    pipelineUsername: gke-jx-user
+    promotionEngine: Prow
+    prowEngine: Tekton
+    quickstartLocations:
+    - excludes:
+      - WIP-*
+      gitKind: github
+      gitUrl: https://github.com
+      includes:
+      - '*'
+      owner: jenkins-x-quickstarts
+    useGitOps: true
+    versionStreamUrl: https://github.com/jenkins-x/jenkins-x-versions.git
+  webHookEngine: Prow
+status: {}

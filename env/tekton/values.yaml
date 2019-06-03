@@ -1,0 +1,4 @@
+auth:
+  git:
+    username: gke-jx-user
+tillerNamespace: ""
